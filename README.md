@@ -152,7 +152,7 @@ The outputs are designed to be immediately actionable: not a paper for a drawer,
 
 ## Author
 
-**[Mariem Belaid]**  
+**Mariem Belaid**  
 Computer Science student, Sousse, Tunisia  
 *Field observation, data collection, modelling, and analysis — all conducted independently as a self-directed research project.*
 
