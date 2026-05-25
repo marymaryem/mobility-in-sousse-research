@@ -62,7 +62,7 @@ Beb Bhar (arrival)
 
 ## Methodology
 
-### Phase 1 — Field Data Collection (weeks 1–8)
+### Phase 1 — Field Data Collection 
 Structured 30-minute observation sessions at stations along the corridor. Three time slots per day: morning peak (07–09h), midday (12–14h), evening peak (17–20h). At minimum 3 days per week including Fridays.
 
 Each session records:
