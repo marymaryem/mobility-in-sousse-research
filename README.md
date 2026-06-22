@@ -82,7 +82,7 @@ on the KK → Beb Bhar corridor. Respondents reported their boarding station,
 destination, travel frequency, typical time slot, average wait time, and which 
 of the four failure cases they regularly experience.
 
-**Survey link:** [Fill the survey]((https://docs.google.com/forms/d/e/1FAIpQLSc0XxDJODYXb2eao84x0sgewVG7ODLANQRoA_JOU_Jf57fG2w/viewform?usp=header))
+**Survey link:** https://docs.google.com/forms/d/e/1FAIpQLSc0XxDJODYXb2eao84x0sgewVG7ODLANQRoA_JOU_Jf57fG2w/viewform?usp=header
 **Responses collected:** 52 (target: 150+)
 
 ### Phase 2 — Exploratory Data Analysis
