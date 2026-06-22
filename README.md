@@ -134,11 +134,14 @@ Data-backed recommendations for municipal authorities, an interactive demand das
 - [x] Problem definition and research design
 - [x] Corridor mapping and louage type classification
 - [x] Observation sheet designed and validated
-- [ ] Phase 1: Data collection (in progress)
-- [ ] Phase 2: Exploratory analysis
-- [ ] Phase 3: ML modelling
+- [x] Bilingual survey deployed (Arabic/French)
+- [x] 52 responses collected from daily commuters
+- [x] First ML model trained (Decision Tree classifier)
+- [x] Finding: 150+ responses needed for reliable modelling
+- [ ] Phase 2: Exploratory data analysis
+- [ ] Phase 3: Full ML pipeline (Random Forest, XGBoost)
 - [ ] Phase 4: Simulation
-- [ ] Phase 5: Report and dashboard
+- [ ] Phase 5: Dashboard and report
 
 ---
 
