@@ -15,7 +15,7 @@ This project studies that system — rigorously and from the ground up — to un
 
 ## Research Questions
 
-1. At which stations and time slots is demand consistently outpacing supply?
+1. At which zones and time slots is demand consistently outpacing supply?
 2. Which of the four service failure types dominates — and does it vary by location and hour?
 3. Can we predict passenger demand 30–60 minutes ahead with sufficient accuracy to be operationally useful?
 4. What is the measurable contribution of bus unreliability to louage overcrowding?
@@ -37,6 +37,20 @@ This project distinguishes four structurally different reasons a passenger waits
 Each case has a different cause and a different fix. A model trained only on "wait time" cannot distinguish them. This project records each case separately, enabling multi-label failure classification.
 
 ---
+## Current Findings (Phase 1)
+
+From 52 survey responses:
+- **67%** of respondents experience Case 1 (full louages passing)
+- **52%** experience Case 4 (boarding rush / left behind)
+- **Monday** is reported as the worst day by 75% of respondents
+- **Morning slot (07:00–09:00)** is the most-used time (50% of respondents)
+- **33 out of 52** respondents wait more than 15 minutes on average
+- Most respondents board from **Kalaa Kebira zone** (34/52)
+- Bus is used "rarely" or "never" by **75%** of respondents, confirming louage dependency
+
+> ⚠️ ML finding: A Decision Tree classifier trained on 52 responses did not beat 
+> the majority-class baseline (45% vs 64%). Minimum 150 responses estimated for 
+> reliable supervised learning.
 
 ## Corridor Overview
 
@@ -62,13 +76,14 @@ Beb Bhar (arrival)
 
 ## Methodology
 
-### Phase 1 — Field Data Collection 
-Structured 30-minute observation sessions at stations along the corridor. Three time slots per day: morning peak (07–09h), midday (12–14h), evening peak (17–20h). At minimum 3 days per week including Fridays.
+### Phase 1 — Passenger Survey
+A bilingual (Arabic/French) Google Forms survey deployed to daily commuters 
+on the KK → Beb Bhar corridor. Respondents reported their boarding station, 
+destination, travel frequency, typical time slot, average wait time, and which 
+of the four failure cases they regularly experience.
 
-Each session records:
-- Supply: louages on line, full louages (Case 1), wrong-line louages (Case 2), longest dead period in minutes (Case 3)
-- Demand: passengers at session start/end, boarded, left behind (Case 4), gave up
-- Context: weather, school day, market day, Ramadan period, special events
+**Survey link:** [Fill the survey]((https://docs.google.com/forms/d/e/1FAIpQLSc0XxDJODYXb2eao84x0sgewVG7ODLANQRoA_JOU_Jf57fG2w/viewform?usp=header))
+**Responses collected:** 52 (target: 150+)
 
 ### Phase 2 — Exploratory Data Analysis
 Demand heatmaps by station × hour × day. Supply-demand gap analysis. Case frequency breakdown. Correlation with contextual variables.
@@ -91,35 +106,26 @@ Data-backed recommendations for municipal authorities, an interactive demand das
 
 | Column | Type | Description |
 |--------|------|-------------|
-| `date` | date | Observation date |
-| `day_of_week` | str | Auto-derived |
-| `time_slot` | str | 30-min window (e.g. 07:00–08:00) |
-| `station` | str | Station name on KK→BB line |
-| `station_type` | str | Official / Informal / Junction / Market |
-| `louages_on_line` | int | KK→BB louages passing (usable) |
-| `louages_full` | int | Passed but full — Case 1 |
-| `louages_wrongline` | int | Passed but wrong route — Case 2 |
-| `longest_gap_min` | int | Longest dead period in minutes — Case 3 |
-| `waiting_start` | int | Passengers waiting at session start |
-| `waiting_end` | int | Passengers waiting at session end |
-| `boarded` | int | Passengers who boarded during session |
-| `left_behind` | int | Pushed out / failed to board — Case 4 |
-| `gave_up` | int | Passengers who left the queue without boarding |
-| `effective_supply` | int | `louages_on_line - louages_full` (auto) |
-| `dominant_failure` | str | Auto-labelled failure case |
-| `weather` | str | Sunny / Cloudy / Rain / Hot / Windy |
-| `school_day` | bool | School in session? |
-| `market_day` | bool | Weekly market active nearby? |
-| `ramadan_period` | bool | Ramadan active? (shifts demand timing significantly) |
-| `notes` | str | Free text observations |
-
+| `station` | str | Boarding station reported by respondent |
+| `destination` | str | Destination station |
+| `frequency` | str | How often they use the line (daily / 3-5x / 1-2x per week) |
+| `time_slot` | str | Usual travel time window |
+| `wait_time` | str | Typical wait time (< 5 min / 5-15 / 15-30 / > 30 min) |
+| `case` | str | Failure cases experienced (multi-select) |
+| `case_full` | int | 1 if passenger experiences full louages (Case 1) |
+| `case_wrongline` | int | 1 if wrong-line louages are a problem (Case 2) |
+| `case_nogap` | int | 1 if long supply gaps occur (Case 3) |
+| `case_rush` | int | 1 if boarding rush causes exclusion (Case 4) |
+| `worst_day` | str | Day of week with worst waiting experience |
+| `uses_bus` | str | Whether respondent uses the bus as alternative |
+| `why_prefer_louage` | str | Reason for preferring louage over bus |
 ---
 
 ## Tech Stack
 
 | Layer | Tools |
 |-------|-------|
-| Data collection | Custom Excel observation sheet |
+| Data collection | Google Forms (bilingual Arabic/French survey) |
 | Data processing | Python · pandas · numpy |
 | Visualisation | matplotlib · seaborn · plotly |
 | Machine learning | scikit-learn · XGBoost · SHAP |
@@ -157,7 +163,7 @@ The outputs are designed to be immediately actionable: not a paper for a drawer,
 
 **Mariem Belaid**  
 Computer Science student, Sousse, Tunisia  
-*Field observation, data collection, modelling, and analysis — all conducted independently as a self-directed research project.*
+*survey design, data collection, modelling, and analysis — all conducted independently as a self-directed research project.*
 
 ---
 
