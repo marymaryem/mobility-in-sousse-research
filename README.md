@@ -90,10 +90,6 @@ Demand heatmaps by station × hour × day. Supply-demand gap analysis. Case freq
 
 ### Phase 3 — Machine Learning Models
 
-> **Note:** Original Phase 3 planned regression on field observation data 
-> (passenger counts, louage counts). Following a methodology pivot to 
-> passenger surveys, targets were updated to reflect available data.
-
 **Classification Targets:**
 
 | Target | Type | Research Question |
