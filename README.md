@@ -52,6 +52,14 @@ From **230 survey responses** collected from daily KK → Beb Bhar commuters:
 - **75%** rarely or never use the bus, confirming near-total louage dependency
 - Most respondents board from **Kalaa Kebira zone** (175/230)
 
+  ### Key Charts
+
+![Wait Time Distribution](images/chart1_wait_distribution.png)
+![Failure Case Frequency](images/chart2_failure_cases.png)
+![Wait Time by Time Slot](images/chart4_wait_by_timeslot.png)
+![Case Co-occurrence](images/chart6_case_cooccurrence.png)
+![SHAP Feature Importance](images/chart9_shap_importance.png)
+
 > ⚠️ **ML finding :** Three classifiers trained on 229 responses 
 > (Decision Tree, Random Forest, XGBoost) were evaluated on wait time 
 > prediction (4-class) and Case 1 binary prediction. Random Forest and XGBoost 
