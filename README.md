@@ -102,6 +102,11 @@ Demand heatmaps by station × hour × day. Supply-demand gap analysis. Case freq
 - Decision Tree — interpretable baseline
 - Random Forest — ensemble method, handles small datasets better
 - XGBoost
+**Features used:** boarding zone, time slot, travel frequency
+
+**Evaluation metrics:** Accuracy, F1-score, Precision, Recall, Confusion Matrix
+
+**Baseline:** majority-class classifier (always predict most frequent class)
 
 ### Phase 4 — Simulation & Scenario Testing
 Use trained models to simulate interventions: what happens to unmet demand if departure intervals at KK are regularised to every 12 minutes during peak hours? Which stations benefit most from adding one additional louage?
