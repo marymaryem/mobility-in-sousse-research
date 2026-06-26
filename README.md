@@ -89,10 +89,23 @@ of the four failure cases they regularly experience.
 Demand heatmaps by station × hour × day. Supply-demand gap analysis. Case frequency breakdown. Correlation with contextual variables.
 
 ### Phase 3 — Machine Learning Models
-- **Target 1 (regression):** passenger count at a given station, time, and day
-- **Target 2 (classification):** dominant failure case for the session
-- **Models:** Linear Regression (baseline) → Decision Tree → Random Forest → XGBoost
-- **Evaluation:** MAE, RMSE for regression; F1-score, confusion matrix for classification
+
+> **Note:** Original Phase 3 planned regression on field observation data 
+> (passenger counts, louage counts). Following a methodology pivot to 
+> passenger surveys, targets were updated to reflect available data.
+
+**Classification Targets:**
+
+| Target | Type | Research Question |
+|--------|------|------------------|
+| `wait_time` | 4-class classification | Can we predict wait severity based on boarding zone, time slot, and travel frequency? |
+| `case_full` | Binary classification | Can we predict whether a passenger will experience full louages passing (Case 1)? |
+| `case_rush` | Binary classification | Can we predict whether a passenger will experience boarding rush exclusion (Case 4)? |
+
+**Models (in order of complexity):**
+- Decision Tree — interpretable baseline
+- Random Forest — ensemble method, handles small datasets better
+- XGBoost
 
 ### Phase 4 — Simulation & Scenario Testing
 Use trained models to simulate interventions: what happens to unmet demand if departure intervals at KK are regularised to every 12 minutes during peak hours? Which stations benefit most from adding one additional louage?
