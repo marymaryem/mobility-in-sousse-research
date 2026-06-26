@@ -17,7 +17,7 @@ This project studies that system — rigorously and from the ground up — to un
 
 1. At which zones and time slots is demand consistently outpacing supply?
 2. Which of the four service failure types dominates — and does it vary by location and hour?
-3. Can we predict passenger demand 30–60 minutes ahead with sufficient accuracy to be operationally useful?
+3. Can we predict wait severity and failure case type based on boarding zone, time slot, and travel frequency?
 4. What is the measurable contribution of bus unreliability to louage overcrowding?
 5. What low-cost interventions (scheduling coordination, physical infrastructure, signage) would close the gap?
 
@@ -37,20 +37,27 @@ This project distinguishes four structurally different reasons a passenger waits
 Each case has a different cause and a different fix. A model trained only on "wait time" cannot distinguish them. This project records each case separately, enabling multi-label failure classification.
 
 ---
-## Current Findings (Phase 1)
+## Current Findings 
 
-From 52 survey responses:
-- **67%** of respondents experience Case 1 (full louages passing)
-- **52%** experience Case 4 (boarding rush / left behind)
-- **Monday** is reported as the worst day by 75% of respondents
-- **Morning slot (07:00–09:00)** is the most-used time (50% of respondents)
-- **33 out of 52** respondents wait more than 15 minutes on average
-- Most respondents board from **Kalaa Kebira zone** (34/52)
-- Bus is used "rarely" or "never" by **75%** of respondents, confirming louage dependency
+From **230 survey responses** collected from daily KK → Beb Bhar commuters:
 
-> ⚠️ ML finding: A Decision Tree classifier trained on 52 responses did not beat 
-> the majority-class baseline (45% vs 64%). Minimum 150 responses estimated for 
-> reliable supervised learning.
+- **67.8%** of respondents regularly experience Case 1 (full louages passing)
+- **67.0%** experience Case 4 (boarding rush / left behind)
+- **43%** experience both Case 1 and Case 4 simultaneously
+- **73%** wait more than 15 minutes on average
+- **43%** wait more than 30 minutes — the single largest category
+- Morning slot (07:00–09:00) has the highest proportion of >30 min waits (50%)
+- Midday (12:00–14:00) is the best service window (64% wait only 5-15 min)
+- **87%** report Monday as the worst day
+- **75%** rarely or never use the bus, confirming near-total louage dependency
+- Most respondents board from **Kalaa Kebira zone** (175/230)
+
+> ⚠️ **ML finding :** Three classifiers trained on 229 responses 
+> (Decision Tree, Random Forest, XGBoost) were evaluated on wait time 
+> prediction (4-class) and Case 1 binary prediction. Random Forest and XGBoost 
+> achieved 69.57% accuracy on Case 1 prediction vs 67.39% baseline — modest 
+> but genuine signal. SHAP analysis identified **travel frequency** as the 
+> strongest predictor, followed by time slot and boarding zone.
 
 ## Corridor Overview
 
@@ -83,7 +90,7 @@ destination, travel frequency, typical time slot, average wait time, and which
 of the four failure cases they regularly experience.
 
 **Survey link:** https://docs.google.com/forms/d/e/1FAIpQLSc0XxDJODYXb2eao84x0sgewVG7ODLANQRoA_JOU_Jf57fG2w/viewform?usp=header
-**Responses collected:** 52 (target: 150+)
+**Responses collected:** 230
 
 ### Phase 2 — Exploratory Data Analysis
 Demand heatmaps by station × hour × day. Supply-demand gap analysis. Case frequency breakdown. Correlation with contextual variables.
@@ -153,16 +160,12 @@ Data-backed recommendations for municipal authorities, an interactive demand das
 
 - [x] Problem definition and research design
 - [x] Corridor mapping and louage type classification
-- [x] Observation sheet designed and validated
 - [x] Bilingual survey deployed (Arabic/French)
-- [x] 52 responses collected from daily commuters
-- [x] First ML model trained (Decision Tree classifier)
-- [x] Finding: 150+ responses needed for reliable modelling
-- [ ] Phase 2: Exploratory data analysis
-- [ ] Phase 3: Full ML pipeline (Random Forest, XGBoost)
-- [ ] Phase 4: Simulation
+- [x] 230 responses collected from daily commuters
+- [x] Phase 2: Exploratory Data Analysis (6 charts)
+- [x] Phase 3: ML pipeline — Decision Tree, Random Forest, XGBoost, SHAP
+- [ ] Phase 4: Simulation & scenario testing
 - [ ] Phase 5: Dashboard and report
-
 ---
 
 ## Why This Matters
@@ -183,4 +186,6 @@ Computer Science student, Sousse, Tunisia
 
 ## License
 
-Data collected in this project is original field observation data. Code is MIT licensed. Contact the author before reproducing findings.
+Data collected in this project is original survey data from 230 commuters 
+on the KK → Beb Bhar corridor. Code is MIT licensed. 
+Contact the author before reproducing findings.
