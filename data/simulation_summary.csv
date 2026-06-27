@@ -1,0 +1,8 @@
+Scenario,Finding,Implication
+Worst commute profile,"Akouda, 09:00–11:00, occasional traveller",Pre-position louages at mid-route stops
+Best commute profile,"Kalaa Kebira, 05:00–07:00, daily commuter",Early departure significantly reduces wait
+Time shift: 07h → 12h (KK daily),Wait drops from >30 min to 5-15 min,Staggered schedules benefit KK commuters
+Bus as forced fallback,Bus used only when louage is full/absent,Louage reliability fix reduces forced bus use
+Akouda 07:00-09:00 Case 1 risk,90% probability of encountering full louage,Mid-route supply intervention urgently needed
+Sousse City — any time slot Case 1 risk,73–95% Case 1 probability regardless of time,Structural fix needed — not time-based
+Midday window — KK daily commuter,Case 1 risk drops from 60% to 54% only,Time shift alone insufficient — supply fix needed
