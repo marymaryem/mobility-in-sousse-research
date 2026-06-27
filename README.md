@@ -56,9 +56,13 @@ From **230 survey responses** collected from daily KK → Beb Bhar commuters:
   ### Key Charts
 
 ![Wait Time Distribution](images/chart1_wait_distribution.png)
+
 ![Failure Case Frequency](images/chart2_failure_cases.png)
+
 ![Wait Time by Time Slot](images/chart4_wait_by_timeslot.png)
+
 ![Case Co-occurrence](images/chart6_case_cooccurrence.png)
+
 ![SHAP Feature Importance](images/chart9_shap_importance.png)
 
 > ⚠️ **ML finding :** Three classifiers trained on 229 responses 
@@ -76,6 +80,7 @@ From **230 survey responses** collected from daily KK → Beb Bhar commuters:
 - Bus usage confirmed as forced fallback, not modal preference
 
 ![Corridor Heatmap](images/chart10_corridor_heatmap.png)
+
 ![Simulation Summary](images/chart12_simulation_summary.png)
 
 ## Corridor Overview
