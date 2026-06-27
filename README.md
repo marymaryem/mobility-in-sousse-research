@@ -188,7 +188,7 @@ Data-backed recommendations for municipal authorities, an interactive demand das
 - [x] 230 responses collected from daily commuters
 - [x] Phase 2: Exploratory Data Analysis (6 charts)
 - [x] Phase 3: ML pipeline — Decision Tree, Random Forest, XGBoost, SHAP
-- [ ] Phase 4: Simulation & scenario testing
+- [x] Phase 4: Simulation & scenario testing
 - [ ] Phase 5: Dashboard and report
 ---
 
