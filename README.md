@@ -38,6 +38,7 @@ Each case has a different cause and a different fix. A model trained only on "wa
 
 ---
 ## Current Findings 
+# Phase 1 & 2
 
 From **230 survey responses** collected from daily KK → Beb Bhar commuters:
 
@@ -66,6 +67,16 @@ From **230 survey responses** collected from daily KK → Beb Bhar commuters:
 > achieved 69.57% accuracy on Case 1 prediction vs 67.39% baseline — modest 
 > but genuine signal. SHAP analysis identified **travel frequency** as the 
 > strongest predictor, followed by time slot and boarding zone.
+# Phase 4 — Simulation Results
+
+- Worst predicted profile: **Akouda, 09:00–11:00** — 99% Case 1 risk
+- Best predicted profile: **KK, 05:00–07:00** — 34% Case 1 risk  
+- Time shift KK 07h→12h: wait drops from >30min to 5-15min, but Case 1 only drops 6%
+- Sousse City faces 73–95% Case 1 risk at **every** time slot — structural fix required
+- Bus usage confirmed as forced fallback, not modal preference
+
+![Corridor Heatmap](images/chart10_corridor_heatmap.png)
+![Simulation Summary](images/chart12_simulation_summary.png)
 
 ## Corridor Overview
 
