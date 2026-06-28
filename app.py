@@ -5,7 +5,7 @@ import numpy as np
 import joblib
 import plotly.express as px
 import plotly.graph_objects as go
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -23,7 +23,7 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap');
 
 html, body, [class*="css"] {
-font-family: Georgia, serif;
+    font-family: "DM Sans", sans-serif;
 }
 
 .hero {
@@ -34,7 +34,7 @@ font-family: Georgia, serif;
     text-align: center;
 }
 .hero h1 {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Syne", sans-serif;
     font-size: 3rem;
     font-weight: 800;
     color: #D4A017;
@@ -55,8 +55,8 @@ font-family: Georgia, serif;
     margin-bottom: 16px;
 }
 .stat-number {
-font-family: "Poppins", sans-serif;
-font-size: 2.8rem;
+    font-family: "Syne", sans-serif;
+    font-size: 2.8rem;
     font-weight: 800;
     color: #D4A017;
     line-height: 1;
@@ -94,7 +94,7 @@ font-size: 2.8rem;
     text-align: center;
 }
 .section-title {
-    font-family: "Poppins", sans-serif;
+    font-family: "Syne", sans-serif;
     font-size: 1.6rem;
     font-weight: 800;
     color: #1B2A4A;
@@ -179,13 +179,17 @@ content = {
         "problem_title": "The Problem",
         "problem_text": "Sousse has a bus network — but it's unreliable. So 75% of daily commuters depend on shared taxis (louages) on the KK → Beb Bhar corridor. No schedule, no data, no coordination. The result: unpredictable waits, full louages, and daily chaos.",
         "stats": ["of commuters wait >15 min", "experience full louages daily", "say Monday is the worst day", "never or rarely use the bus"],
-        "freq_label": "How often do you travel?",
+        "predict_title": "Predict Your Commute",
         "predict_title": "Predict Your Commute",
         "predict_desc": "Select your profile to see your predicted wait time and risk level.",
         "zone_label": "Your boarding zone",
         "time_label": "Your usual time slot",
         "best_window": "Your Best Travel Window",
+        "predict_desc": "Select your profile to see your predicted wait time and risk level.",
+        "time_label": "Your usual time slot",
+        "freq_label": "How often do you travel?",
         "predict_btn": "🔍 Predict My Commute",
+        "best_window": "Your Best Travel Window",
         "fix_title": "What Would Actually Fix This",
         "solutions": [
             ("🕐 Regulate departure intervals", "Fix scheduled departures every 12 min at KK during peak hours. Eliminates supply gaps (Case 3)."),
@@ -196,11 +200,11 @@ content = {
     },
     "Français": {
         "title": "Crise de Mobilité à Sousse",
-        "subtitle": "La première étude basée sur les données de la demande en taxis collectifs sur le corridor Kalaa Kebira → Beb Bhar",
-        "nav": ["🏠 Le Problème", "📊 Les Données", "🚐 Votre Trajet", "💡 Les Solutions"],
-        "problem_title": "Le Problème",
-        "problem_text": "Sousse dispose d'un réseau de bus — mais il est peu fiable. Ainsi, 75% des navetteurs quotidiens dépendent des taxis collectifs (louages) sur le corridor KK → Beb Bhar. Pas d'horaires, pas de données, pas de coordination. Résultat: des attentes imprévisibles et un chaos quotidien.",
         "stats": ["des navetteurs attendent >15 min", "vivent des louages complets chaque jour", "disent que le lundi est le pire jour", "n'utilisent jamais le bus"],
+>15 minutes", "vivent des louages
+complets chaque jour", "disent que le lundi
+est le pire jour", "n'utilisent jamais
+ou rarement le bus"],
         "predict_title": "Prédire Votre Trajet",
         "predict_desc": "Sélectionnez votre profil pour voir votre temps d'attente prédit.",
         "zone_label": "Votre zone d'embarquement",
@@ -259,7 +263,7 @@ if page == C["nav"][0]:
     """, unsafe_allow_html=True)
 
     # Live status based on current time
-    now = datetime.now()
+    now = datetime.now(timezone.utc) + timedelta(hours=1)  # Tunisia = UTC+1
     hour = now.hour
     day  = now.weekday()  # 0=Monday
 
@@ -373,11 +377,11 @@ elif page == C["nav"][1]:
     st.plotly_chart(fig1, use_container_width=True)
 
     col1, col2 = st.columns(2)
-
-    with col1:
-        # Case frequency
-        case_data = pd.DataFrame({
             "Case": ["Case 1 Full", "Case 2 Wrong line", "Case 3 No supply", "Case 4 Rush"],
+Full", "Case 2
+Wrong line", "Case 3
+No supply", "Case 4
+Rush"],
             "Count": [df["case_full"].sum(),
                       df["case"].str.contains("سهلول", na=False).sum(),
                       df["case"].str.contains("لا يمر", na=False).sum(),
