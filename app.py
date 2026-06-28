@@ -292,7 +292,7 @@ if page == C["nav"][0]:
         risk_msg += " ⚠️ MONDAY — historically the worst day on this corridor (87% of respondents)." if lang == "English" else " ⚠️ LUNDI — historiquement le pire jour (87% des répondants)." if lang == "Français" else " ⚠️ الاثنين — تاريخياً أسوأ يوم في هذا المحور (87% من المستطلعين)."
 
     st.markdown(f"""
-    <div class="status-box" style="background:{risk_color}; border-left: 4px solid #1B2A4A;">
+    <div class="status-box" style="background:{risk_color}; border-left: 4px solid #1B2A4A; color: #1B2A4A;">
         <strong>{risk_level}</strong> — {risk_msg}
     </div>
     """, unsafe_allow_html=True)
