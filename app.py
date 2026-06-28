@@ -377,11 +377,9 @@ elif page == C["nav"][1]:
     st.plotly_chart(fig1, use_container_width=True)
 
     col1, col2 = st.columns(2)
+    with col1:
+        case_data = pd.DataFrame({
             "Case": ["Case 1 Full", "Case 2 Wrong line", "Case 3 No supply", "Case 4 Rush"],
-Full", "Case 2
-Wrong line", "Case 3
-No supply", "Case 4
-Rush"],
             "Count": [df["case_full"].sum(),
                       df["case"].str.contains("سهلول", na=False).sum(),
                       df["case"].str.contains("لا يمر", na=False).sum(),
