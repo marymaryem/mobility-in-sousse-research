@@ -23,7 +23,7 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap');
 
 html, body, [class*="css"] {
-    font-family: "DM Sans", sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 .hero {
@@ -34,7 +34,7 @@ html, body, [class*="css"] {
     text-align: center;
 }
 .hero h1 {
-    font-family: "Syne", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 3rem;
     font-weight: 800;
     color: #D4A017;
@@ -55,8 +55,8 @@ html, body, [class*="css"] {
     margin-bottom: 16px;
 }
 .stat-number {
-    font-family: "Syne", sans-serif;
-    font-size: 2.8rem;
+font-family: "Poppins", sans-serif;
+font-size: 2.8rem;
     font-weight: 800;
     color: #D4A017;
     line-height: 1;
@@ -94,7 +94,7 @@ html, body, [class*="css"] {
     text-align: center;
 }
 .section-title {
-    font-family: "Syne", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 1.6rem;
     font-weight: 800;
     color: #1B2A4A;
