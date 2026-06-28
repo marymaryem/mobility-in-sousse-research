@@ -180,8 +180,12 @@ content = {
         "problem_text": "Sousse has a bus network — but it's unreliable. So 75% of daily commuters depend on shared taxis (louages) on the KK → Beb Bhar corridor. No schedule, no data, no coordination. The result: unpredictable waits, full louages, and daily chaos.",
         "stats": ["of commuters wait >15 min", "experience full louages daily", "say Monday is the worst day", "never or rarely use the bus"],
         "freq_label": "How often do you travel?",
-        "predict_btn": "🔍 Predict My Commute",
+        "predict_title": "Predict Your Commute",
+        "predict_desc": "Select your profile to see your predicted wait time and risk level.",
+        "zone_label": "Your boarding zone",
+        "time_label": "Your usual time slot",
         "best_window": "Your Best Travel Window",
+        "predict_btn": "🔍 Predict My Commute",
         "fix_title": "What Would Actually Fix This",
         "solutions": [
             ("🕐 Regulate departure intervals", "Fix scheduled departures every 12 min at KK during peak hours. Eliminates supply gaps (Case 3)."),
