@@ -373,11 +373,7 @@ elif page == C["nav"][1]:
     with col1:
         # Case frequency
         case_data = pd.DataFrame({
-            "Case": ["Case 1
-Full", "Case 2
-Wrong line", "Case 3
-No supply", "Case 4
-Rush"],
+            "Case": ["Case 1 Full", "Case 2 Wrong line", "Case 3 No supply", "Case 4 Rush"],
             "Count": [df["case_full"].sum(),
                       df["case"].str.contains("سهلول", na=False).sum(),
                       df["case"].str.contains("لا يمر", na=False).sum(),
