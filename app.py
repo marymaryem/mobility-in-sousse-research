@@ -34,7 +34,7 @@ font-family: Georgia, serif;
     text-align: center;
 }
 .hero h1 {
-    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 3rem;
     font-weight: 800;
     color: #D4A017;
