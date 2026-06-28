@@ -178,15 +178,7 @@ content = {
         "nav": ["🏠 The Problem", "📊 The Data", "🚐 Your Commute", "💡 The Fix"],
         "problem_title": "The Problem",
         "problem_text": "Sousse has a bus network — but it's unreliable. So 75% of daily commuters depend on shared taxis (louages) on the KK → Beb Bhar corridor. No schedule, no data, no coordination. The result: unpredictable waits, full louages, and daily chaos.",
-        "stats": ["of commuters wait
->15 minutes", "experience full
-louages daily", "say Monday
-is the worst day", "never or rarely
-use the bus"],
-        "predict_title": "Predict Your Commute",
-        "predict_desc": "Select your profile to see your predicted wait time and risk level.",
-        "zone_label": "Your boarding zone",
-        "time_label": "Your usual time slot",
+        "stats": ["of commuters wait >15 min", "experience full louages daily", "say Monday is the worst day", "never or rarely use the bus"],
         "freq_label": "How often do you travel?",
         "predict_btn": "🔍 Predict My Commute",
         "best_window": "Your Best Travel Window",
@@ -204,11 +196,7 @@ use the bus"],
         "nav": ["🏠 Le Problème", "📊 Les Données", "🚐 Votre Trajet", "💡 Les Solutions"],
         "problem_title": "Le Problème",
         "problem_text": "Sousse dispose d'un réseau de bus — mais il est peu fiable. Ainsi, 75% des navetteurs quotidiens dépendent des taxis collectifs (louages) sur le corridor KK → Beb Bhar. Pas d'horaires, pas de données, pas de coordination. Résultat: des attentes imprévisibles et un chaos quotidien.",
-        "stats": ["des navetteurs attendent
->15 minutes", "vivent des louages
-complets chaque jour", "disent que le lundi
-est le pire jour", "n'utilisent jamais
-ou rarement le bus"],
+        "stats": ["des navetteurs attendent >15 min", "vivent des louages complets chaque jour", "disent que le lundi est le pire jour", "n'utilisent jamais le bus"],
         "predict_title": "Prédire Votre Trajet",
         "predict_desc": "Sélectionnez votre profil pour voir votre temps d'attente prédit.",
         "zone_label": "Votre zone d'embarquement",
@@ -230,11 +218,7 @@ ou rarement le bus"],
         "nav": ["🏠 المشكلة", "📊 البيانات", "🚐 رحلتك", "💡 الحلول"],
         "problem_title": "المشكلة",
         "problem_text": "سوسة لديها شبكة حافلات — لكنها غير موثوقة. لذلك 75% من المسافرين اليوميين يعتمدون على التاكسي الجماعي في محور كالة كبرى ← باب البحر. لا جداول زمنية، لا بيانات، لا تنسيق. النتيجة: انتظار غير متوقع وفوضى يومية.",
-        "stats": ["من المسافرين ينتظرون
-أكثر من 15 دقيقة", "يواجهون لوّاجات
-ممتلئة يومياً", "يقولون الاثنين
-هو أسوأ يوم", "لا يستخدمون
-الحافلة أبداً أو نادراً"],
+        "stats": ["من المسافرين ينتظرون أكثر من 15 دقيقة", "يواجهون لوّاجات ممتلئة يومياً", "يقولون الاثنين هو أسوأ يوم", "لا يستخدمون الحافلة أبداً أو نادراً"],
         "predict_title": "تنبأ برحلتك",
         "predict_desc": "اختر ملفك الشخصي لمعرفة وقت الانتظار المتوقع ومستوى المخاطرة.",
         "zone_label": "منطقة صعودك",
@@ -614,3 +598,4 @@ elif page == C["nav"][3]:
     st.markdown("---")
     st.info("📋 This study is based on 230 survey responses from daily KK → Beb Bhar commuters. Data collected 2025. Conducted independently by Mariem Belaid, CS student, Sousse.")
     st.markdown("[📂 View full research on GitHub](https://github.com/marymaryem/mobility-in-sousse-research)")
+
