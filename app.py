@@ -200,11 +200,11 @@ content = {
     },
     "Français": {
         "title": "Crise de Mobilité à Sousse",
+        "subtitle": "La première étude basée sur les données de la demande en taxis collectifs sur le corridor Kalaa Kebira → Beb Bhar",
+        "nav": ["🏠 Le Problème", "📊 Les Données", "🚐 Votre Trajet", "💡 Les Solutions"],
+        "problem_title": "Le Problème",
+        "problem_text": "Sousse dispose d'un réseau de bus — mais il est peu fiable. Ainsi, 75% des navetteurs quotidiens dépendent des taxis collectifs (louages) sur le corridor KK → Beb Bhar. Pas d'horaires, pas de données, pas de coordination. Résultat: des attentes imprévisibles et un chaos quotidien.",
         "stats": ["des navetteurs attendent >15 min", "vivent des louages complets chaque jour", "disent que le lundi est le pire jour", "n'utilisent jamais le bus"],
->15 minutes", "vivent des louages
-complets chaque jour", "disent que le lundi
-est le pire jour", "n'utilisent jamais
-ou rarement le bus"],
         "predict_title": "Prédire Votre Trajet",
         "predict_desc": "Sélectionnez votre profil pour voir votre temps d'attente prédit.",
         "zone_label": "Votre zone d'embarquement",
