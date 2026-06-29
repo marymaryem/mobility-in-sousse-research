@@ -339,24 +339,11 @@ if page == C["nav"][0]:
     st.markdown('<div class="section-title">📍 The Corridor</div>', unsafe_allow_html=True)
     corridor_data = pd.DataFrame({
         "Station": ["Kalaa Kebira", "El Warda", "Gamooun", "Rp. Meublatex", "Sidi Salem", "Menchia", "Khzema", "Panorama", "Hospital", "Beb Bhar"],
-        "lat": [35.8756, 35.8623, 35.8589, 35.8456, 35.8423, 35.8389, 35.8312, 35.8278, 35.8245, 35.8212],
-        "lon": [10.5123, 10.5234, 10.5289, 10.5345, 10.5389, 10.5423, 10.5512, 10.5556, 10.5589, 10.5634],
+        "lat": [35.8748, 35.8698, 35.8658, 35.8587, 35.8547, 35.8498, 35.8387, 35.8312, 35.8267, 35.8198],
+        "lon": [10.5089, 10.5156, 10.5198, 10.5267, 10.5312, 10.5356, 10.5498, 10.5567, 10.5623, 10.5698],
         "type": ["Origin", "Akouda", "Akouda", "H.Sousse", "H.Sousse", "H.Sousse", "Sousse City", "Sousse City", "Sousse City", "Destination"],
     })
-    fig_map = px.scatter_mapbox(
-        corridor_data, lat="lat", lon="lon",
-        hover_name="Station", color="type",
-        color_discrete_map={
-            "Origin": "#D4A017", "Akouda": "#4FC3A1",
-            "H.Sousse": "#8B7CF8", "Sousse City": "#E86B4A",
-            "Destination": "#185FA5"
-        },
-        zoom=11, height=350,
-        mapbox_style="carto-positron"
-    )
-    fig_map.update_traces(marker=dict(size=14))
-    fig_map.update_layout(margin=dict(l=0,r=0,t=0,b=0))
-    st.plotly_chart(fig_map, use_container_width=True)
+    st.image("images/corridor_map.png", use_column_width=True)
 
 # ══════════════════════════════════════════════════════════════
 # PAGE 2 — THE DATA
